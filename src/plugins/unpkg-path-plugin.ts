@@ -10,11 +10,11 @@ export const unpkgPathPlugin = (inputCode: string) => {
   return {
     name: 'unpkg-path-plugin',
     setup(build: esbuild.PluginBuild) {
-      build.onResolve({ filter: /.*/ }, async (args: any) => {
-        if (args.path === 'index.js') {
-          return { path: args.path, namespace: 'a' };
-        }
+      build.onResolve({ filter: /(^index\.js$)/ }, () => {
+        return { path: 'index.js', namespace: 'a' };
+      });
 
+      build.onResolve({ filter: /.*/ }, async (args: any) => {
         if (args.path.includes('./') || args.path.includes('../')) {
           return {
             namespace: 'a',
@@ -38,7 +38,9 @@ export const unpkgPathPlugin = (inputCode: string) => {
             contents: inputCode,
           };
         }
-        const cachedResult = await fileCache.getItem<esbuild.OnLoadResult>(args.path);
+        const cachedResult = await fileCache.getItem<esbuild.OnLoadResult>(
+          args.path
+        );
 
         if (cachedResult) {
           return cachedResult;

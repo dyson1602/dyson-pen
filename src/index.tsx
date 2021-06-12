@@ -45,6 +45,7 @@ const App = () => {
 
   const html = `
     <html>
+      <head></head>
       <body>
         <div id="root"></div>
         <script>

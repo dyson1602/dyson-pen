@@ -12,7 +12,7 @@ export const unpkgPathPlugin = () => {
       //Handle relative paths in a module
       build.onResolve({ filter: /^\.+\// }, async (args: any) => {
         return {
-          path: new URL(args.path, 'http://unpkg.com' + args.resolveDir + '/')
+          path: new URL(args.path, 'https://unpkg.com' + args.resolveDir + '/')
             .href,
           namespace: 'a',
         };
@@ -22,7 +22,7 @@ export const unpkgPathPlugin = () => {
       build.onResolve({ filter: /.*/ }, async (args: any) => {
         return {
           namespace: 'a',
-          path: `http://unpkg.com/${args.path}`,
+          path: `https://unpkg.com/${args.path}`,
         };
       });
     },

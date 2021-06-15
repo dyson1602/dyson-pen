@@ -27,7 +27,7 @@ const TextEditor: React.FC = () => {
 
   if (editing) {
     return (
-      <div ref={editorRef}>
+      <div className="text-editor" ref={editorRef}>
         <MDEditor />
       </div>
     );

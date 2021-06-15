@@ -1,3 +1,4 @@
+import './text-editor.css'
 import MDEditor from '@uiw/react-md-editor';
 import { useState, useEffect, useRef } from 'react';
 
@@ -16,7 +17,7 @@ const TextEditor: React.FC = () => {
       }
       setEditing(false);
     };
-    
+
     document.addEventListener('click', listener, { capture: true });
 
     return () => {

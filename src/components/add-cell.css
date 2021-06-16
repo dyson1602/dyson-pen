@@ -1,5 +1,11 @@
 .add-cell {
   position: relative;
+  opacity: 0;
+  transition: ease-in 0.1s opacity 0.3s ;
+}
+
+.add-cell:hover {
+  opacity: 1.0;
 }
 
 .add-cell .divider {
@@ -20,4 +26,8 @@
 
 .add-cell .add-buttons button {
   margin: 0 30px;
+}
+
+.add-cell.force-visible {
+  opacity: 1.0;
 }

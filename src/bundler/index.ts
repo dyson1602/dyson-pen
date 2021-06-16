@@ -25,7 +25,7 @@ const bundle = async (rawCode: string) => {
         global: 'window',
       },
     });
-    console.log(result)
+  
     return {
       code: result.outputFiles[0].text,
       err: '',

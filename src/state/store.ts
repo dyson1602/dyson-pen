@@ -1,9 +1,20 @@
 import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import reducers from './reducers'
+import reducers from './reducers';
+import { ActionType } from './action-types';
 
-export const store = createStore(reducers, {}, applyMiddleware(thunk))
+export const store = createStore(
+  reducers,
+  {},
+  composeWithDevTools(applyMiddleware(thunk))
+);
 
-const state = store.getState()
-
-state.cells.data
+store.dispatch({
+  type: ActionType.INSERT_CELL_BEFORE,
+  payload: {
+    id: null,
+    type: 'code',
+  },
+});
+console.log(store.getState());

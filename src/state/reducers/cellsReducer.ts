@@ -19,6 +19,9 @@ const initialState: CellsState = {
   data: {},
 };
 
+//immer causes stange behavior with TS. return necessary, but need |void to make
+//it work. initialState after the produce function returns CellsState type to
+//satisfy TS, otherwise it breaks when calling store.getState().cells.data etc
 const reducer = produce(
   (state: CellsState = initialState, action: Action): CellsState | void => {
     switch (action.type) {
@@ -65,7 +68,8 @@ const reducer = produce(
       default:
         return;
     }
-  }
+  },
+  initialState
 );
 
 const randomId = () => {

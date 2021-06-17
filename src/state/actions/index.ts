@@ -42,8 +42,10 @@ export interface BundleCompleteAction {
   type: ActionType.BUNDLE_COMPLETE;
   payload: {
     cellId: string;
-    code: string;
-    err: string;
+    bundle: {
+      code: string;
+      err: string;
+    };
   };
 }
 

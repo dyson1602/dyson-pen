@@ -51,22 +51,23 @@ var createCellsRouter = function (filename, dir) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 2, , 3]);
+                    _a.trys.push([0, 2, , 6]);
                     return [4 /*yield*/, promises_1.default.readFile(fullPath, { encoding: 'utf-8' })];
                 case 1:
                     result = _a.sent();
                     res.send(JSON.parse(result));
-                    return [3 /*break*/, 3];
+                    return [3 /*break*/, 6];
                 case 2:
                     error_1 = _a.sent();
-                    if (error_1.code === 'ENOENT') {
-                        // Add default cells
-                    }
-                    else {
-                        throw error_1;
-                    }
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
+                    if (!(error_1.code === 'ENOENT')) return [3 /*break*/, 4];
+                    return [4 /*yield*/, promises_1.default.writeFile(fullPath, '[]', 'utf-8')];
+                case 3:
+                    _a.sent();
+                    res.send([]);
+                    return [3 /*break*/, 5];
+                case 4: throw error_1;
+                case 5: return [3 /*break*/, 6];
+                case 6: return [2 /*return*/];
             }
         });
     }); });

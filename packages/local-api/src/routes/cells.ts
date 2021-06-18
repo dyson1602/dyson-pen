@@ -18,13 +18,13 @@ export const createCellsRouter = (filename: string, dir: string) => {
       // Read the file
       const result = await fs.readFile(fullPath, { encoding: 'utf-8' });
 
-      res.send(JSON.parse(result))
+      res.send(JSON.parse(result));
     } catch (error) {
-      if(error.code === 'ENOENT'){
-        // Add default cells
-
+      if (error.code === 'ENOENT') {
+        await fs.writeFile(fullPath, '[]', 'utf-8');
+        res.send([]);
       } else {
-        throw error
+        throw error;
       }
     }
   });

@@ -11,6 +11,12 @@ export const serveCommand = new Command()
       const dir = path.join(process.cwd(), path.dirname(filename));
       await serve(parseInt(options.port), path.basename(filename), dir);
     } catch (error) {
-      console.log("Here's the problem: ", error.message);
+      if(error.code === 'EADDRINUSE'){
+        console.log('Port is in use. Try running on a different port.')
+      } else {
+        console.log("Here's the problem: ", error.message)
+      }
+      //Forceful exit with unseccessful launch of app
+      process.exit(1)
     }
   });

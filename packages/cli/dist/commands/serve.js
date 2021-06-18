@@ -62,7 +62,14 @@ exports.serveCommand = new commander_1.Command()
                     return [3 /*break*/, 3];
                 case 2:
                     error_1 = _a.sent();
-                    console.log("Here's the problem: ", error_1.message);
+                    if (error_1.code === 'EADDRINUSE') {
+                        console.log('Port is in use. Try running on a different port.');
+                    }
+                    else {
+                        console.log("Here's the problem: ", error_1.message);
+                    }
+                    //Forceful exit with unseccessful launch of app
+                    process.exit(1);
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }

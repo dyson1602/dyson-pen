@@ -10,13 +10,19 @@ export const serveCommand = new Command()
     try {
       const dir = path.join(process.cwd(), path.dirname(filename));
       await serve(parseInt(options.port), path.basename(filename), dir);
+      console.log(
+        `
+        Opened ${filename}. Navigate to http://localhost:${options.port} to 
+        edit the file.
+        `
+      );
     } catch (error) {
-      if(error.code === 'EADDRINUSE'){
-        console.log('Port is in use. Try running on a different port.')
+      if (error.code === 'EADDRINUSE') {
+        console.log('Port is in use. Try running on a different port.');
       } else {
-        console.log("Here's the problem: ", error.message)
+        console.log("Here's the problem: ", error.message);
       }
       //Forceful exit with unseccessful launch of app
-      process.exit(1)
+      process.exit(1);
     }
   });

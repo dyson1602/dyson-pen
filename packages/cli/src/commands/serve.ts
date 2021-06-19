@@ -1,6 +1,6 @@
 import path from 'path';
 import { Command } from 'commander';
-import { serve } from 'local-api';
+import { serve } from '@dyson-sphere/local-api';
 
 //isProduction flag to determine if currently in dev or production. prior to 
 //launch, script will be run to change NODE_ENV -> 'production' so isProduction

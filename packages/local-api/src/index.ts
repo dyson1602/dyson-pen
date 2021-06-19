@@ -24,7 +24,7 @@ export const serve = (
   } else {
     //require.resolve() applies node's path resolution algorithm to figure out the
     //file location of the html file
-    const packagePath = require.resolve('local-client/build/index.html');
+    const packagePath = require.resolve('@dyson-sphere/local-client/build/index.html');
     //path.dirname gives everything up to the file
     app.use(express.static(path.dirname(packagePath)));
   }

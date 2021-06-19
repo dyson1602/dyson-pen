@@ -1,6 +1,6 @@
 {
   "name": "dyson-pen",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "files": [
     "dist"
@@ -17,8 +17,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "commander": "^7.2.0",
-    "@dyson-sphere/local-api": "^1.0.0"
+    "@dyson-sphere/local-api": "^1.0.0",
+    "commander": "^7.2.0"
   },
   "devDependencies": {
     "@types/node": "^15.12.3",

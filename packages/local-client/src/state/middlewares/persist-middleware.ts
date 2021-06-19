@@ -11,6 +11,8 @@ export const persistMiddleware = ({
   dispatch: Dispatch<Action>;
   getState: () => RootState;
 }) => {
+  let timer: any;
+
   return (next: (action: Action) => void) => {
     return (action: Action) => {
       next(action);
@@ -25,7 +27,12 @@ export const persistMiddleware = ({
       ) {
         //saveCells returns a function that takes in the arguments of
         //dispatch and getState
-        saveCells()(dispatch, getState);
+        if (timer) {
+          clearTimeout(timer);
+        }
+        timer = setTimeout(() => {
+          saveCells()(dispatch, getState);
+        }, 250);
       }
     };
   };

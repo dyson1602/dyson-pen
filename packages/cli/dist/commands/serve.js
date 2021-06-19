@@ -42,7 +42,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.serveCommand = void 0;
 var path_1 = __importDefault(require("path"));
 var commander_1 = require("commander");
-var local_api_1 = require("local-api");
+var local_api_1 = require("@dyson-sphere/local-api");
 //isProduction flag to determine if currently in dev or production. prior to 
 //launch, script will be run to change NODE_ENV -> 'production' so isProduction
 //is bools to true. this is for the serve proxy conditional

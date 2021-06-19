@@ -21,7 +21,7 @@ var serve = function (port, filename, dir, useProxy) {
     else {
         //require.resolve() applies node's path resolution algorithm to figure out the
         //file location of the html file
-        var packagePath = require.resolve('local-client/build/index.html');
+        var packagePath = require.resolve('@dyson-sphere/local-client/build/index.html');
         //path.dirname gives everything up to the file
         app.use(express_1.default.static(path_1.default.dirname(packagePath)));
     }

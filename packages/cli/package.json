@@ -17,7 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@dyson-pen/local-client": "^1.0.2"
+    "@dyson-sphere/local-client": "^1.0.2"
   },
   "devDependencies": {
     "@dyson-sphere/local-api": "^1.0.2",

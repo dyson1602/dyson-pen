@@ -17,10 +17,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@dyson-sphere/local-api": "^1.0.2",
-    "commander": "^7.2.0"
+   "@dyson-pen/local-client": "^1.0.2"
   },
   "devDependencies": {
+    "@dyson-sphere/local-api": "^1.0.2",
+    "commander": "^7.2.0",
     "@types/node": "^15.12.3",
     "esbuild": "0.8.26",
     "typescript": "^4.3.4"
